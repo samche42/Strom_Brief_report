@@ -1,6 +1,6 @@
 #This script can be used to count the number of times a particluar set of KO entries 
 #appears in n genomes. List of KOs needs one KO entry per line and output from kofamscan. 
-#Script will output KO counts in a table. Example KO list in git repo "Nitrogen_list"
+#Script will output KO counts in a table. Example KO list in git repo "Query_list"
 
 #Usage: python3 kegg_parser.py path/to/kofamsccan/output Query_list
 
@@ -20,9 +20,9 @@ with open(os.path.join(input_directory, query)) as query_input:
 #create list of kegg files to parse through
 kegg_files = [file for file in os.listdir(input_directory) if file.endswith(".KEGG.Output")]
 
-#create dictionary to store genome kegg annotations
-kegg_annotations = {}
+#create a list to store each dictionary genome kegg annotation counts
 ko_list = []
+
 #Create a dictionary for each genome, with all query KOs set to a count of 0.
 for kegg in kegg_files:
         ko_entries = []
