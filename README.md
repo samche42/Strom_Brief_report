@@ -9,6 +9,4 @@ b. Count gene occurence in prokka annotations using prokka_parser.py. This finds
 
 c. Add prokka and KEGG counts together and divide by two to find the average.
 
-d. Multiply counts by bin coverage. The more abundant the genome, the more abundant are it's genes. Coverage is a proxy for abundnace.
-
-e. Divide by weighted sample coverage (calculated by weighted_contig_coverage_calculator.py) so that we can compare abundances between samples.
+d. Multiply counts by weighted sample coverage (calculated by weighted_contig_coverage_calculator.py) so that we can compare abundances between samples.
