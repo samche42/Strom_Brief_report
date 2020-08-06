@@ -9,7 +9,7 @@ Genes in query files were collected manually from KEGG systems and literature re
 
 a. Total genes were counted per sample: (for faa in `ls *.faa`; do echo ${faa}; grep ">" ${faa} | wc -l; done). This was performed for all Bacteria.faa files.
 
-##Genome gene abundnace (e.g. count occurance of phoX in genome bin CSU_1_1) - Used to create Figs. 1, S5 and S6
+##Genome gene abundance (e.g. count occurance of phoX in genome bin CSU_1_1) - Used to create Figs. 1, S5 and S6
 
 a. Count gene occurence of KEGG annotations per genome using kegg_parser.py. 
 
