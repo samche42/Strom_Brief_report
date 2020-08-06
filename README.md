@@ -1,51 +1,32 @@
 # Strom_Brief_report
 Raw data, scripts and descriptions of figure creation for manuscript
 
+**KEGG Query genes
 
-Genome gene abundnace (e.g. count occurance of phoX in genome bin CSU_1_1) - Used to create Figs. 1, S5 and S6
+Genes in query files were collected manually from KEGG systems and literature review. Both key gene query files and the photosynthesis query files are in this repo. 
 
-a. Count gene occurence of KEGG annotations per genome using kegg_parser.py. 
-
-b. Count gene occurence of prokka annotations per genome using prokka_parser.py. 
-
-c. Add prokka and KEGG counts together and divide by two to find the average.
-
-d. Multiply counts by weighted genome coverage (calculated by weighted_contig_coverage_calculator.py) so that we can compare abundances between samples.
-
-
-Sample gene abundance (e.g. count occurance of phoX in CSU_Bacteria.faa) - used to create Fig. S3
-
-a. Count gene occurence of KEGG annotations per Bacteria.faa file using kegg_parser.py. 
-
-b. Count gene occurence of prokka annotations per Bacteria.faa using prokka_parser.py. 
-
-c. Average gene count = (Prokka count + KEGG count)/2
-
-d. Weighted sample coverage was calculated by weighted_contig_coverage_calculator.py
-
-e. Sample gene abundance = Average gene count * Weighted sample coverage
-
-
-Total gene abundance (e.g. count of ALL genes in CSU_Bacteria.fasta)
+**Total gene count:
 
 a. Total genes were counted per sample: (for faa in `ls *.faa`; do echo ${faa}; grep ">" ${faa} | wc -l; done). This was performed for all Bacteria.faa files.
 
-b. Sample weighted coverages were calculated using weighted_contig_coverage_calculator.py with Bacteria.fasta files
+**Genome gene abundnace (e.g. count occurance of phoX in genome bin CSU_1_1) - Used to create Figs. 1, S5 and S6
 
-c. Total gene abundance per sample = gene count x sample weighted coverage.
+a. Count gene occurence of KEGG annotations per genome using kegg_parser.py. 
 
+b. Divide count by total number of genes in sample, and multiply by 100 to get relative percentage (e.g. CRU_1_1 phoX count = 3, CRU total gene count = 30000 : 3/30000 x 100 = 0.01%)
 
+**Sample gene abundance (e.g. count occurance of phoX in CSU_Bacteria.faa) - used to create Fig. S3
 
-Finding relative percentage:
+a. Count gene occurence of KEGG annotations from Bacteria.faa files using kegg_parser.py. 
 
-Figs. 1, S5 and S6:
+*Note Bacteria.faa files include all unclustered and small (< 3000 bp) contigs.
 
-Relative percentage = Genome gene abundance / Total gene abundance *100
+b. Divide count by total number of genes in sample, and multiply by 100 to get relative percentage (e.g. CRU phoX count = 30, CRU total gene count = 30000 : 30/30000*100 = 0.1%)
 
-Fig. S3
+c. The relative percentage of genes (Fig. S3B) that were annotated but not clustered were calculated by:
 
-Relative percentage = Sample gene abundance / Total gene abundance *100
+Remaining genes rel perc = Total annotated geneX abundance in sample Y - sum (gene X abundance in all genomes binned from sample Y)
 
-All scripts used here are in the repo, as well as a master Excel file with all metadata and calculations.
+**Data availability
 
-Additionally, I have uploaded a compressed folder of all prokka and kofamscan output files, and the scripts used to run these tools for reproducibility. 
+Additionally, I have uploaded a compressed folder of raw kofamscan output files, .faa files used by kofamscan, the scripts used to run these tools for and the Master excel spreadsheet of counts, relative percentages, and metadata for query genes. 
