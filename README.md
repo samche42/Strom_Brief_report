@@ -29,4 +29,4 @@ Remaining genes rel perc = Total annotated geneX abundance in sample Y - sum (ge
 
 ##Data availability
 
-Additionally, I have uploaded a compressed folder of raw kofamscan output files, genome fasta files, prokka output, the scripts used to run these tools for and the Master excel spreadsheet of counts, relative percentages, and metadata for query genes. 
+Additionally, if you would like access to kofamscan, prokka, prodigal and/or Autometa output please do not hesitate to contact me at either swaterworth@wisc.edu or samche42@gmail.com (both are checked multiple times a day) and I will happily send any and all files you require. 
